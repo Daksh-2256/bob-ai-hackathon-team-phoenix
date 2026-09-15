@@ -38,6 +38,8 @@ function DataBlock({ data }: { data: unknown }) {
         const riskLevel = (obj.riskLevel ?? (obj.riskScore as Record<string, unknown>)?.riskLevel) as string | undefined;
         const type = obj.type as string | undefined;
 
+        if (!id && !name && !status && !riskLevel && !type) return null;
+
         const icon =
           obj.shipmentId ? <Package className="w-3.5 h-3.5 text-blue-500" /> :
           obj.assetId ? <Truck className="w-3.5 h-3.5 text-yellow-500" /> :

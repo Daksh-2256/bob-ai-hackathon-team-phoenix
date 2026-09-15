@@ -46,6 +46,10 @@ export default function Scenarios() {
       setError(null);
       const d = await getScenarios();
       setScenarios(d);
+      const active = d.find(s => s.isActive);
+      if (active) {
+        setActiveScenarioId(active.scenarioId);
+      }
     } catch {
       setError('Failed to load scenarios');
     } finally {
@@ -158,21 +162,21 @@ export default function Scenarios() {
                 {/* Impact summary */}
                 <div className="flex flex-wrap gap-3 mb-4 text-xs text-gray-600">
                   <div className="flex items-center gap-1.5 bg-gray-50 rounded-lg px-2.5 py-1.5 border border-gray-200">
-                    <span className="font-semibold text-orange-600">{scenario.activateDisruptions.length}</span>
+                    <span className="font-semibold text-orange-600">{(scenario.activateDisruptions ?? []).length}</span>
                     <span>disruptions</span>
                   </div>
                   <div className="flex items-center gap-1.5 bg-gray-50 rounded-lg px-2.5 py-1.5 border border-gray-200">
-                    <span className="font-semibold text-blue-600">{scenario.affectedShipments.length}</span>
+                    <span className="font-semibold text-blue-600">{(scenario.affectedShipments ?? []).length}</span>
                     <span>shipments</span>
                   </div>
                   <div className="flex items-center gap-1.5 bg-gray-50 rounded-lg px-2.5 py-1.5 border border-gray-200">
-                    <span className="font-semibold text-gray-700">{scenario.durationMinutes}min</span>
+                    <span className="font-semibold text-gray-700">{scenario.durationMinutes ?? 0}min</span>
                     <span>duration</span>
                   </div>
                 </div>
 
                 {/* Expected actions */}
-                {scenario.expectedActions.length > 0 && (
+                {(scenario.expectedActions ?? []).length > 0 && (
                   <div className="mb-4">
                     <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Expected Actions</p>
                     <ul className="space-y-1">

@@ -301,6 +301,7 @@ export interface DemoScenario {
   coldChainShipments?: string[];
   expectedActions: string[];
   durationMinutes: number;
+  isActive?: boolean;
 }
 
 // ─── Copilot ──────────────────────────────────────────────────
@@ -316,6 +317,7 @@ export type QueryIntent =
   | 'TOP_ACTIONS'
   | 'CARGO_VALUE'
   | 'SPECIFIC_SHIPMENT'
+  | 'GREETING'
   | 'UNKNOWN';
 
 export interface CopilotResponse {

@@ -32,6 +32,20 @@ import { generateOperationsBrief } from './operationsBrief';
 export function detectIntent(query: string): QueryIntent {
   const q = query.toLowerCase();
 
+  // Greetings, help, and introductory queries
+  const cleanQ = q.trim().replace(/^[!?,.\s]+|[!?,.\s]+$/g, '');
+  if (
+    /^(hi|hello|hey|greetings|howdy|good\s+(morning|afternoon|evening)|help|who\s+are\s+you|what\s+can\s+you\s+do|what\s+do\s+you\s+do)$/i.test(cleanQ) ||
+    cleanQ === 'hi' ||
+    cleanQ === 'hello' ||
+    cleanQ === 'hey' ||
+    cleanQ.startsWith('hi ') ||
+    cleanQ.startsWith('hello ') ||
+    cleanQ.startsWith('hey ')
+  ) {
+    return 'GREETING';
+  }
+
   // Specific shipment lookup — e.g. "SHP-1042", "shp-001"
   if (/shp-\d+/i.test(query)) return 'SPECIFIC_SHIPMENT';
 
@@ -102,6 +116,30 @@ export function detectIntent(query: string): QueryIntent {
 }
 
 // ─── Query handlers ───────────────────────────────────────────
+
+function handleGreeting(query: string): CopilotResponse {
+  return {
+    query,
+    intent: 'GREETING',
+    naturalLanguageAnswer:
+      "Hello! I am your IBM Bob AI Copilot for SupplyGuard. I have real-time visibility across your entire supply chain — disruptions, shipments, fleet, and cold chain.\n\n" +
+      "Here are some questions you can ask me:\n" +
+      "• \"Give me the top 5 actions I should take right now\"\n" +
+      "• \"Which shipments are most affected by active disruptions?\"\n" +
+      "• \"Which shipment has the highest risk?\"\n" +
+      "• \"Show me idle trucks that can be redeployed\"\n" +
+      "• \"Which cold-chain shipments have temperature excursions?\"\n" +
+      "• \"Summarize today's supply chain situation\"",
+    data: null,
+    suggestedFollowUps: [
+      'Give me the top 5 actions I should take right now',
+      'Which shipments are most affected by active disruptions?',
+      'Which shipment has the highest risk?',
+      'Show me idle trucks that can be redeployed',
+    ],
+    generatedAt: new Date().toISOString(),
+  };
+}
 
 function handleDisruptions(query: string): CopilotResponse {
   const active = getActiveDisruptions();
@@ -556,6 +594,9 @@ export function processQuery(query: string): CopilotResponse {
   const q = query.toLowerCase();
 
   switch (intent) {
+    case 'GREETING':
+      return handleGreeting(query);
+
     case 'SPECIFIC_SHIPMENT':
       return handleSpecificShipment(query);
 

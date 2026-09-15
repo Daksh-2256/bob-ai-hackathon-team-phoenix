@@ -139,16 +139,9 @@ export function activateScenario(scenarioId: string): {
 /**
  * Returns a list of all available scenarios with summary info.
  */
-export function listScenarios(): Array<{
-  scenarioId: string;
-  name: string;
-  description: string;
-  isActive: boolean;
-}> {
+export function listScenarios(): DemoScenario[] {
   return state.scenarios.map(s => ({
-    scenarioId: s.scenarioId,
-    name: s.name,
-    description: s.description,
+    ...s,
     isActive: s.scenarioId === state.activeScenarioId,
   }));
 }
