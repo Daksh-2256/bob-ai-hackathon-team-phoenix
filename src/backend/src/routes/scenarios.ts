@@ -8,6 +8,7 @@ import {
   resetToDefault,
 } from '../../../intelligence/scenarioEngine';
 import { state } from '../../../data/index';
+import { persistScenarioActivation, persistReset } from '../services/dbSync';
 
 const router = Router();
 
@@ -42,6 +43,11 @@ router.post('/scenarios/:id/activate', (req: Request, res: Response) => {
         (s.status === 'AT_RISK' || s.status === 'DELAYED')
     ).length;
 
+    // Asynchronously persist to MongoDB if connected
+    persistScenarioActivation(scenarioId).catch(err =>
+      console.error('[Scenarios] DB persist error:', err)
+    );
+
     res.json({
       success: true,
       data: {
@@ -64,6 +70,7 @@ router.post('/scenarios/:id/activate', (req: Request, res: Response) => {
 router.post('/scenarios/reset', (_req: Request, res: Response) => {
   try {
     resetToDefault();
+    persistReset().catch(err => console.error('[Scenarios] DB reset error:', err));
     res.json({ success: true, data: { message: 'State reset to default' } });
   } catch (err) {
     res.status(500).json({ success: false, error: 'Failed to reset state' });
