@@ -1,69 +1,70 @@
-# =============================================================================
-# HACKATHON SUBMISSION METADATA
-# =============================================================================
-# Instructions:
-#   - Fill in ALL required fields (marked with # REQUIRED)
-#   - Optional fields can be left as empty strings ""
-#   - Do NOT rename this file — the evaluation pipeline reads it by name
-#   - Use double quotes around all string values
-# =============================================================================
-
 team:
-  name: ""                             # REQUIRED — e.g., "Orion Squad"
-  track: ""                            # REQUIRED — one of: AI | DevOps | Sustainability | Open
+  name: "Team Phoenix"
+  track: "AI"
   lead:
-    name: ""                           # REQUIRED — e.g., "Alice Chen"
-    email: ""                          # REQUIRED — e.g., "alice.chen@ibm.com"
+    name: "[YOUR NAME - FILL IN]"
+    email: "[YOUR EMAIL - FILL IN]"
   members:
-    - name: ""                         # REQUIRED — Team member 1
-      email: ""
-    - name: ""                         # Add more members by copying the two lines above
-      email: ""
-    - name: ""
-      email: ""
+    - name: "[MEMBER 1 - FILL IN]"
+      email: "[MEMBER 1 EMAIL - FILL IN]"
+    - name: "[MEMBER 2 - FILL IN]"
+      email: "[MEMBER 2 EMAIL - FILL IN]"
+    - name: "[MEMBER 3 - FILL IN]"
+      email: "[MEMBER 3 EMAIL - FILL IN]"
 
 submission:
-  title: ""                            # REQUIRED — Project display name, e.g., "SmartOps Dashboard"
+  title: "SupplyGuard AI"
 
-  problem_statement: >                 # REQUIRED — 1-3 sentences. What problem? Who has it?
-    Replace this text with a concise description of the real-world problem
-    your project addresses and who experiences it.
+  problem_statement: >
+    Global supply chain operations teams lack real-time unified intelligence to
+    correlate disruptions with shipment impact, optimise fleet utilisation, and
+    detect cold-chain temperature excursions before cargo integrity is lost,
+    costing enterprises hundreds of millions annually in delays, spoilage, and
+    missed SLAs.
 
-  solution_summary: >                  # REQUIRED — 1-3 sentences. What did you build?
-    Replace this text with a clear description of your solution
-    and how it addresses the problem above.
+  solution_summary: >
+    SupplyGuard AI is an intelligent logistics control tower that correlates
+    active disruptions with shipment routes to calculate live risk scores,
+    recommends alternative routes and carriers, detects and redeploys idle
+    fleet assets, monitors cold-chain IoT telemetry to detect and classify
+    temperature excursions before delivery, and provides a natural-language
+    IBM Bob Copilot powered by a 10-tool MCP server for conversational
+    supply chain intelligence.
 
-  key_features:                        # REQUIRED — List 3 to 5 specific features you implemented
-    - ""                               # e.g., "Real-time pipeline anomaly detection using watsonx.ai"
-    - ""
-    - ""
-    - ""                               # optional 4th
-    - ""                               # optional 5th
+  key_features:
+    - "Real-time disruption impact analysis with transparent risk scoring (0-100) and per-factor breakdown"
+    - "AI route and carrier recommendation engine comparing cost, delay, reliability and disruption exposure"
+    - "Fleet utilisation optimizer detecting idle assets and calculating redeployment benefit"
+    - "Cold-chain IoT excursion detection engine classifying severity (MINOR/MAJOR/CRITICAL) from 500+ sensor readings"
+    - "IBM Bob MCP Copilot with 10 load-bearing tools for conversational supply chain intelligence"
 
   tech_stack:
-    languages: []                      # REQUIRED — e.g., ["Python", "TypeScript"]
-    frameworks: []                     # e.g., ["FastAPI", "React"]
-    ibm_technologies: []               # e.g., ["watsonx.ai", "IBM Bob", "IBM Cloud Functions"]
-    databases: []                      # e.g., ["PostgreSQL", "Redis"]
-    other: []                          # e.g., ["Docker", "GitHub Actions", "Slack API"]
+    languages: ["TypeScript", "JavaScript"]
+    frameworks: ["React", "Vite", "Express", "Tailwind CSS", "Recharts"]
+    ibm_technologies: ["IBM Bob", "Model Context Protocol (MCP)"]
+    databases: ["In-memory JSON state (demo)", "SQLite-compatible architecture"]
+    other: ["Lucide React", "Zod", "Axios", "React Router", "ts-node", "Jest", "ts-jest"]
 
-  what_we_are_most_proud_of: >         # Optional but recommended — guides judges to your best work
-    Replace with what aspect of the submission you consider strongest
-    and want judges to pay special attention to.
+  what_we_are_most_proud_of: >
+    The IBM Bob MCP integration is genuinely load-bearing — every intelligence
+    engine is accessible as a real MCP tool, meaning Bob can query live
+    disruption data, analyze shipment risk with actual scoring logic, and
+    recommend fleet redeployments from real application state. The cold-chain
+    excursion engine processes 500+ realistic IoT readings with configurable
+    severity thresholds and a full time-series analysis, not hardcoded results.
 
-  known_limitations: >                 # Optional but recommended — be honest about gaps
-    Replace with any known limitations, incomplete features,
-    or shortcuts taken due to time constraints.
+  known_limitations: >
+    Runs entirely on synthetic demo data — not connected to live logistics APIs
+    or IoT platforms. Cold-chain severity thresholds are configurable demo rules
+    and must be validated against actual regulatory/product requirements before
+    production use. Authentication and multi-user session management are not
+    implemented. The MCP server requires a locally running IBM Bob instance.
 
-# =============================================================================
-# ARTIFACT LOCATIONS
-# These paths are relative to the repo root. Only change if you moved files.
-# =============================================================================
 artifacts:
   source_code: "src/"
   setup_guide: "docs/setup-guide.md"
   architecture_doc: "docs/architecture.md"
-  demo_video: "demo/demo-video-link.txt"   # URL to hosted video (YouTube, Loom, Box)
-  live_demo: "demo/live-demo-url.txt"      # URL to deployed demo (optional)
+  demo_video: "demo/demo-video-link.txt"
+  live_demo: "demo/live-demo-url.txt"
   screenshots: "demo/screenshots/"
   presentation: "presentation/"

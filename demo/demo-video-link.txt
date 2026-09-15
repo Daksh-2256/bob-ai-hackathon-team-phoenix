@@ -1,6 +1,7 @@
-https://youtu.be/your-demo-video-link-here
+NOT RECORDED YET
 
-Replace the URL above with a link to your demo video.
+Replace this with your actual video link before final submission.
+A 3-5 minute walkthrough of the demo flow is recommended.
 
 Accepted platforms:
   - YouTube (public or unlisted)
@@ -8,8 +9,16 @@ Accepted platforms:
   - IBM Box (https://ibm.box.com/s/...)
   - Google Drive (set to "Anyone with the link can view")
 
-Video requirements:
-  - Length: 3–5 minutes maximum
-  - Must show the application running (not just slides)
-  - Should walk through at least one key feature end-to-end
-  - Audio narration strongly recommended
+Suggested demo flow:
+1. Open Dashboard at http://localhost:5173
+2. Activate Rotterdam Port Strike scenario (Scenarios page)
+3. Return to Dashboard — observe Active Disruptions count increase
+4. Click the highest-risk shipment in the Shipments tab
+5. Show risk score breakdown (DISRUPTION_OVERLAP, CARRIER_RELIABILITY labels)
+6. Show alternative routes with RECOMMENDED badge
+7. Open Fleet Optimizer, click REDEPLOY on an idle asset
+8. Open Cold Chain page, show temperature excursion alert with severity badge
+9. Click the alert to see the temperature time-series chart
+10. Open Bob Copilot, type: "Give me the top 5 actions I should take right now"
+11. Show Bob calling MCP tools and returning structured recommendations
+12. Open Operations Brief — show health score and prioritised action list
