@@ -13,7 +13,7 @@
 | **Team Name** | Team Phoenix |
 | **Track** | AI |
 | **Team Lead** | [YOUR NAME — fill in before submission] |
-| **Members** | [FILL IN before submission] |
+| **Members** | 24CS034-Samarth, 24CS035-Sanidhya, 24CS038-Daksh, 24CS054-Krish |
 
 ---
 
