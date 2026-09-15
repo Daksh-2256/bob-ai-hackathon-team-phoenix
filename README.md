@@ -175,7 +175,7 @@ See [`docs/setup-guide.md`](docs/setup-guide.md) for the full setup guide includ
 | 📹 Demo Video | See [demo/demo-video-link.txt](demo/demo-video-link.txt) |
 | 🌐 Live Demo | NOT DEPLOYED — run locally (see Quick Start above) |
 | 🖼️ Screenshots | See [demo/screenshots/](demo/screenshots/) |
-| 📊 Presentation | See [presentation/slides.md](presentation/slides.md) |
+| 📊 Presentation | See [presentation/slides.md](presentation/slides.pdf) |
 
 ### Demo Scenarios
 
